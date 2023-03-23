@@ -1,5 +1,7 @@
 defmodule ExMon do
- def create_player(name, move_avg, move_rnd, move_heal) do
-   ExMon.Player.build(name, move_avg, move_rnd, move_heal)
- end
+  alias ExMon.Player
+
+  def create_player(name, move_avg, move_rnd, move_heal) do
+    Player.build(name, move_avg, move_rnd, move_heal)
+  end
 end
