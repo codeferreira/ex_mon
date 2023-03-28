@@ -17,6 +17,8 @@ defmodule ExMon do
   end
 
   def make_move(move) do
-    Actions.fetch_move(move)
+    move
+    |> Actions.fetch_move()
+    |> Actions.perform_move()
   end
 end

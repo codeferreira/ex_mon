@@ -1,10 +1,24 @@
 defmodule ExMon.Game.Actions do
   alias ExMon.Game
+  alias ExMon.Game.Status
 
   def fetch_move(move) do
     Game.player()
     |> Map.get(:moves)
     |> find_move(move)
+  end
+
+  def perform_move({:error, move}), do: Status.print_invalid_move_message(move)
+
+  def perform_move({:ok, move}) do
+    case move do
+      :move_heal -> "cura"
+      move -> attack(move)
+    end
+  end
+
+  defp attack(move) do
+
   end
 
   defp find_move(moves, move) do
