@@ -17,8 +17,11 @@ defmodule ExMon.Game.Actions do
     end
   end
 
-  defp attack(move) do
-
+  def attack(move) do
+    case Game.turn() do
+      :player -> Attack.attack_opponent(:computer, move)
+      :computer -> Attack.attack_opponent(:player, move)
+    end
   end
 
   defp find_move(moves, move) do
