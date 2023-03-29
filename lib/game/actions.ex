@@ -1,5 +1,6 @@
 defmodule ExMon.Game.Actions do
   alias ExMon.Game
+  alias ExMon.Game.Actions.Attack
   alias ExMon.Game.Status
 
   def fetch_move(move) do
@@ -15,6 +16,8 @@ defmodule ExMon.Game.Actions do
       :move_heal -> "cura"
       move -> attack(move)
     end
+
+    Status.print_round_message(Game.info())
   end
 
   def attack(move) do
