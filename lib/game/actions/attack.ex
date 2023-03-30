@@ -42,6 +42,12 @@ defmodule ExMon.Game.Actions.Attack do
         :computer -> Game.fetch_player(:player) |> Map.get(:name)
       end
 
-    Status.print_move_message(player_name, opponent_name, :attack, move_name, damage)
+    Status.print_move_message(
+      player_name,
+      opponent_name,
+      :attack,
+      move_name,
+      damage
+    )
   end
 end
