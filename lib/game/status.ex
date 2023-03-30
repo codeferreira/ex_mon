@@ -23,12 +23,10 @@ defmodule ExMon.Game.Status do
     IO.puts("----------------------------")
   end
 
-  def print_move_message(:computer, :attack, damage) do
-    IO.puts("\n====== Player attacked Robotnik dealing #{damage} damage ======\n")
-  end
-
-  def print_move_message(:player, :attack, damage) do
-    IO.puts("\n====== Robotnik attacked player dealing #{damage} damage ======\n")
+  def print_move_message(player, opponent, :attack, move, damage) do
+    IO.puts(
+      "\n====== #{player} attacked #{opponent} with #{move}, dealing #{damage} damage ======\n"
+    )
   end
 
   def print_move_message(player, :heal, life) do
